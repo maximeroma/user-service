@@ -59,7 +59,7 @@ def add_user():
 
             return jsonify(response_object), 400
 
-    except exc.IntegrityError as e:
+    except exc.IntegrityError:
         db.session.rollback()
 
         return jsonify(response_object), 400
